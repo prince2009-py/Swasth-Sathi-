@@ -1,4 +1,13 @@
-body {
-    font-family: Verdana;
-    font-size: 25px;
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+button {
+    text-align: center;
+    max-height: 40px;
+    max-width: 800px;
+    border-margin: 0px;
+    border-radius: 20px;
 }
