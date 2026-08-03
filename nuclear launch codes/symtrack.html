@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Find disease from symptoms</title>
+    <style>
+      input {
+        height: 40px;
+        width: 600px;
+        margin-top: 700px;
+        margin-right: 50px;
+        font-family: Verdana;
+      }
+      button{
+        height: 40px;
+        width: 40px;
+        margin-top: 700px;
+        margin-left: 610px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="UserInput" placeholder="Start Chatting Here">
+    <button id="enter">Send</button>
+  </body>
+  <script>
+    document.getElementById(`enter`).onclick = function() {
+     input =  document.getElementById(`UserInput`).value
+      document.getElementById(`text`).textContent = `${input}`
+  </script>
+</html>
