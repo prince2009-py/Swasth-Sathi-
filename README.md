@@ -1,4 +1,4 @@
-# Medi Buddy
+# SehatMitra
 
 AI-powered rural health assistant for multilingual healthcare access and
 government health scheme guidance.
@@ -12,8 +12,8 @@ AI Rural Health Assistant for multilingual healthcare access and government heal
 - Prince Agrawal — Team Lead
 - Daksh Verma
 - Deep Yadav
-- Aditi Tiwari
-- Arnav Garg
+- Bhawna Kasana
+- Himanshu
 - Adarsh Soni
 
 ## Project Status
