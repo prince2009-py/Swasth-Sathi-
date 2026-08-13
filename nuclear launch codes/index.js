@@ -49,3 +49,28 @@ sendBtn.addEventListener("click", sendMessage);
 userInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") sendMessage();
 });
+
+function checkbackendstatus() {
+  const statusDot = document.getElementById("status-dot");
+  const statusText = document.getElementById("status-text");
+  const BASE_URL = "https://swasth-sathi-v7qw.onrender.com";
+
+async function checkBackendStatus() {
+  statusDot.className = "waking";
+  statusText.textContent = "Checking...";
+  try {
+    const res = await fetch(BASE_URL + "/");
+    if (res.ok) {
+      statusDot.className = "online";
+      statusText.textContent = "Online";
+      sendBtn.disabled = false;
+    } else {
+      throw new Error();
+    }
+  } catch {
+    statusDot.className = "offline";
+    statusText.textContent = "Offline — retrying...";
+    sendBtn.disabled = true;
+  }
+}
+});
