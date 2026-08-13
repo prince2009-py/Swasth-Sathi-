@@ -7,12 +7,21 @@
       .user-msg { color: #333; margin: 8px 0; }
       .ai-msg { color: #0a6; margin: 8px 0; }
       button { padding: 8px 16px; }
+      #status-indicator { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; font-size: 14px; }
+#status-dot { width: 10px; height: 10px; border-radius: 50%; background: gray; }
+#status-dot.online { background: #0a6; }
+#status-dot.offline { background: #c33; }
+#status-dot.waking { background: #e6a700; }
     </style>
   </head>
   <body>
     <div id="chat-box"></div>
     <input type="text" id="UserInput" placeholder="Enter Your Message Here...">
     <button id="Send">Send</button>
+    <div id="status-indicator">
+    <span id="status-dot"></span>
+    <span id="status-text">Checking...</span>
+  </div>
     <script src="index.js"></script>
   </body>
 </html>
