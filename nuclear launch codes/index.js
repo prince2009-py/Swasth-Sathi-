@@ -1,4 +1,4 @@
-const BACKEND_URL = "Render URL Pls Prince";
+const BACKEND_URL = "https://swasth-sathi-v7qw.onrender.com/docs";
 const chatBox = document.getElementById("chat-box");
 const userint = document.getElementById("UserInput");
 const sendBtn = document.getElementById("Send");
