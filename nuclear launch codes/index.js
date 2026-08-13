@@ -73,4 +73,4 @@ async function checkBackendStatus() {
     sendBtn.disabled = true;
   }
 }
-});
+};
