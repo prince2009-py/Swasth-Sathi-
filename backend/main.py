@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
 from google import genai
@@ -6,6 +7,14 @@ import os
 
 app = FastAPI()
 load_dotenv()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_cridentials=True,
+    allow_methods=["*"]
+    allow_headers=["*"],
+)
 
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
