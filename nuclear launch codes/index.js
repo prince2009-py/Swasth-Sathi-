@@ -73,4 +73,6 @@ async function checkBackendStatus() {
     sendBtn.disabled = true;
   }
 }
-};
+
+checkBackendStatus();               // run once on load
+setInterval(checkBackendStatus, 15000);
