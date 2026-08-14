@@ -50,7 +50,6 @@ userInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") sendMessage();
 });
 
-function checkbackendstatus() {
   const statusDot = document.getElementById("status-dot");
   const statusText = document.getElementById("status-text");
   const BASE_URL = "https://swasth-sathi-v7qw.onrender.com";
