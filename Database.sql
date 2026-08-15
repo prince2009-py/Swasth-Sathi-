@@ -159,3 +159,5 @@ VALUES
 (143, 'National Health Emergency Response Network', 0, NULL, NULL, NULL),
 (144, 'National Community Health Officer (CHO) Programme', 0, NULL, NULL, NULL),
 (145, 'National Digital Public Health Platform Initiative', 0, NULL, NULL, NULL);
+alter table schemes 
+add state varchar(255);
