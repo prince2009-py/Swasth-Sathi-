@@ -163,3 +163,41 @@ alter table schemes
 add state varchar(255);
 alter table schemes
 add Description TEXT;
+Update schemes
+set Description = 'Ayushman Bharat – PM-JAY was launched on 23 September 2018 in Ranchi by the Prime
+Minister, and the official PM-JAY portal describes it as a scheme for cashless
+hospitalization with Rs. 5 lakh per family per year for secondary and tertiary care.
+Eligibility is based mainly on the SECC 2011 beneficiary database, and in 2024 the
+Government expanded coverage to all citizens aged 70 years and above, regardless of
+income. It is available across India through empanelled public and private hospitals,
+has no cap on family size, and is not disease-specific because it covers a wide range of
+serious inpatient procedures rather than one illness. It is ongoing and still active.
+Official sources: PM-JAY portal and PMO announcement.'
+where scheme_id = 1;
+Update schemes
+Set Description = 'Ayushman Vay Vandana Yojana is a health insurance scheme launched by the Government of India in 2024. It provides health coverage to senior citizens aged 70 years and above, regardless of their income level. The scheme offers cashless hospitalization benefits and aims to ensure that elderly citizens have access to quality healthcare services. It is part of the broader Ayushman Bharat initiative and is available across India through empanelled hospitals.'
+where scheme_id = 2;
+Update Schemes 
+Set Description = 'The Employees State Insurance Scheme (ESIC) is a social security and health insurance scheme for Indian workers. It provides medical care, cash benefits during sickness, maternity, and employment injury, as well as other social security benefits. The scheme is funded by contributions from both employers and employees and is managed by the Employees'' State Insurance Corporation (ESIC). Eligibility is based on the employee''s income and age, with coverage for workers earning up to a certain income limit.'
+where scheme_id = 3; 
+Update schemes
+Set Description = 'The Janani Suraksha Yojana (JSY) is a safe motherhood intervention under the National Health Mission (NHM) in India. It aims to reduce maternal and neonatal mortality by promoting institutional deliveries among pregnant women, especially those from economically disadvantaged backgrounds.'
+where scheme_id = 4;
+Update schemes
+Set Description = 'The Janani Shishu Suraksha Karyakram (JSS) is a safe motherhood intervention under the National Health Mission (NHM) in India. It aims to reduce maternal and neonatal mortality by promoting institutional deliveries among pregnant women, especially those from economically disadvantaged backgrounds.'
+where scheme_id = 5;
+Update schemes
+Set Description = 'The Rashtriya Bal Swasthya Karyakram (RBSK) is a child health program under the National Health Mission (NHM) in India.'
+where scheme_id = 6;
+Update Schemes
+Set Description = 'The Rashtriya Kishor Swasthya Karyakram (RKSK) is a health program under the National Health Mission (NHM) in India that focuses on adolescent health and well-being.'
+where scheme_id = 7;
+Update schemes
+Set Description = 'The Menstrual Hygiene Scheme (MHS) is a health initiative under the National Health Mission (NHM) in India that aims to promote menstrual hygiene and provide access to sanitary products.'
+where scheme_id = 8;
+Update schemes
+Set Description = 'The Pradhan Mantri Ayushman Bharat Health Infrastructure Mission (PM-Ayushman Bharat Health Infrastructure Mission) is a government initiative aimed at strengthening the healthcare infrastructure in India. It focuses on improving the availability and accessibility of quality healthcare services, particularly in underserved areas.'
+where scheme_id = 9;
+Update schemes
+Set Description = 'The Central Government Health Scheme (CGHS) is a health insurance scheme for central government employees and pensioners in India. It provides comprehensive medical care, including outpatient and inpatient services.'
+where scheme_id = 10;
