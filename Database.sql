@@ -161,3 +161,5 @@ VALUES
 (145, 'National Digital Public Health Platform Initiative', 0, NULL, NULL, NULL);
 alter table schemes 
 add state varchar(255);
+alter table schemes
+add Description TEXT;
