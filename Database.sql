@@ -201,3 +201,12 @@ where scheme_id = 9;
 Update schemes
 Set Description = 'The Central Government Health Scheme (CGHS) is a health insurance scheme for central government employees and pensioners in India. It provides comprehensive medical care, including outpatient and inpatient services.'
 where scheme_id = 10;
+Update schemes
+Set Description = 'The Rashtriya Arogya Nidhi (RAN) is a government initiative in India that provides financial assistance to patients suffering from major life-threatening diseases. It aims to ensure that patients have access to necessary medical treatment and care, especially those from economically disadvantaged backgrounds.'
+where scheme_id = 11;
+Update schemes
+Set Description = 'The Health Minister''s Discretionary Grant (HMDG) is a government initiative in India that provides financial assistance to state governments for health-related projects and programs. It aims to support the implementation of health initiatives and improve healthcare services across the country.'
+where scheme_id = 12;
+Update schemes
+Set Description = 'The National Health Mission (NHM) is a government initiative in India that aims to provide accessible, affordable, and quality healthcare services to the population, particularly in rural and underserved areas. It encompasses various health programs and schemes to improve maternal and child health, control communicable diseases, and strengthen the healthcare system.'
+where scheme_id = 13;
