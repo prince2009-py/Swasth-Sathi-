@@ -210,3 +210,217 @@ where scheme_id = 12;
 Update schemes
 Set Description = 'The National Health Mission (NHM) is a government initiative in India that aims to provide accessible, affordable, and quality healthcare services to the population, particularly in rural and underserved areas. It encompasses various health programs and schemes to improve maternal and child health, control communicable diseases, and strengthen the healthcare system.'
 where scheme_id = 13;
+Update schemes
+Set Description = 'In 2013, NRHM became one of the two sub-missions under the broader National Health
+Mission (NHM). Unlike an insurance scheme, NRHM does not require any registration,
+income certificate or beneficiary card. Every person residing in rural India can avail the
+health services provided under the mission through government Sub-Centres, Primary
+Health Centres (PHCs), Community Health Centres (CHCs) and District Hospitals. The
+mission has no fixed duration and continues to operate as part of NHM. It is not limited
+to any particular disease and supports maternal health, child health, immunization,
+communicable disease control, non-communicable disease prevention, emergency
+healthcare, sanitation awareness and strengthening of public health infrastructure. It
+also introduced the Accredited Social Health Activist (ASHA) programme to improve
+healthcare access at the village level.'
+where scheme_id = 14;
+Update schemes
+Set Description = 'The National Urban Health Mission (NUHM) was approved by the Union Cabinet on 1 May 2013 and was launched as a sub-mission of the National Health Mission to
+improve healthcare services for the urban population, particularly the urban poor living
+in slums and underserved areas. The mission aims to provide affordable and quality
+healthcare through Urban Primary Health Centres, Urban Community Health Centres
+and outreach services. There is no individual registration or income limit for receiving
+services, although the mission primarily focuses on vulnerable urban communities
+such as slum dwellers, migrant workers, homeless people, street vendors and other
+economically weaker sections. It is implemented across urban areas throughout India
+and continues as an ongoing government programme. NUHM is not disease-specific
+and covers maternal and child healthcare, immunization, family planning, adolescent
+health, communicable diseases, non-communicable diseases, health promotion and
+preventive healthcare services.'
+where scheme_id = 15;
+Update schemes
+Set Description = 'The Pradhan Mantri Swasthya Suraksha Yojana (PMSSY) was launched in 2003 by the Government of India to reduce regional disparities in the availability of quality tertiary
+healthcare and medical education. The scheme is implemented by the Ministry of
+Health and Family Welfare and is responsible for establishing new AIIMS institutions
+and upgrading existing Government Medical Colleges and hospitals across different
+states. Since PMSSY is an infrastructure development programme rather than an
+individual benefit scheme, citizens do not need to apply or fulfil any eligibility criteria to
+receive its benefits. Instead, patients receive improved healthcare services by visiting
+hospitals established or upgraded under PMSSY. The programme is operational across
+several states and continues as an ongoing initiative. It is not limited to any specific
+disease and aims to improve treatment facilities across all medical specialties while
+also increasing the number of doctors and healthcare professionals in the country.'
+where scheme_id = 16;
+Update schemes
+Set Description = 'The National AYUSH Mission (NAM) was approved in 2014 by the Government of India to strengthen and promote the traditional systems of medicine, including Ayurveda, Yoga
+& Naturopathy, Unani, Siddha, Sowa-Rigpa and Homoeopathy. The mission supports
+the establishment and upgradation of AYUSH hospitals, dispensaries, educational
+institutions, medicinal plant cultivation and quality control of AYUSH medicines. Any
+citizen can avail healthcare services from government AYUSH institutions established
+under the mission, and there is no income limit or separate beneficiary registration. The
+mission is implemented throughout India with financial assistance to States and Union
+Territories and continues as an ongoing programme. It is not designed for one particular
+disease but provides preventive, promotive and curative healthcare through various
+AYUSH systems for a wide range of illnesses and lifestyle disorders.'
+where scheme_id = 17;
+Update schemes
+Set Description = 'The Pradhan Mantri Surakshit Matritva Abhiyan (PMSMA) was launched on 9 June 2016 by the Ministry of Health and Family Welfare to provide assured, comprehensive and
+quality antenatal care to pregnant women. Under this programme, every pregnant
+woman in her second and third trimester is entitled to one free, high-quality antenatal
+check-up on the 9th day of every month at designated government health facilities. There
+is no income restriction or caste-based eligibility. The scheme operates across India
+and is ongoing. It is not disease-specific but focuses on early detection and
+management of high-risk pregnancies, anaemia, hypertension, diabetes and other
+pregnancy-related complications, thereby reducing maternal and neonatal mortality.'
+where scheme_id = 18;
+Update schemes
+Set Description = 'The Surakshit Matritva Aashwasan (SUMAN) initiative was launched by the Government of India in October 2019 to achieve zero preventable maternal and newborn deaths.
+Every pregnant woman, mother up to six months after delivery and all sick newborns
+visiting a public health facility are eligible to receive completely free and respectful
+healthcare services without any discrimination. The initiative guarantees free
+medicines, diagnostics, blood, transport, emergency care and treatment of
+complications while ensuring dignity, privacy and informed consent. SUMAN is
+implemented across India through public health institutions and continues as an
+ongoing initiative. It is not disease-specific and integrates several maternal and
+newborn health programmes such as PMSMA, JSSK and LaQshya to provide
+comprehensive care.'
+where scheme_id = 19;
+Update schemes
+Set Description = 'LaQshya was launched by the Ministry of Health and Family Welfare in 2017 to improve the quality of care in labour rooms and maternity operation theatres of government
+hospitals. It is not a direct financial benefit scheme for individuals but a quality
+improvement programme for public healthcare institutions. Therefore, there are no
+income limits, eligibility criteria or registration requirements for beneficiaries. Every
+pregnant woman delivering in a government facility upgraded under LaQshya benefits
+from improved standards of obstetric and newborn care. The programme is
+implemented across India and continues as an ongoing initiative. It specifically focuses
+on improving labour room practices, reducing maternal and newborn deaths,
+preventing birth complications and ensuring safe, respectful childbirth rather than
+treating a particular disease.'
+where scheme_id = 20;
+Update schemes
+Set Description = 'The Universal Immunization Programme (UIP) was launched as a nationwide
+programme in 1985 by the Government of India to ensure that every child receives
+protection against vaccine-preventable diseases. It also covers pregnant women for
+tetanus and other recommended maternal vaccines. Every child from birth up to the
+prescribed age and every eligible pregnant woman can receive vaccinations free of cost
+at government health facilities. There is no income limit, caste restriction or registration
+fee for receiving vaccines. The programme is implemented across all States and Union
+Territories through government hospitals, Primary Health Centres, Health and Wellness
+Centres, Anganwadi Centres and outreach vaccination sessions. UIP is an ongoing
+programme and specifically protects against diseases such as Tuberculosis (BCG),
+Polio, Diphtheria, Pertussis (Whooping Cough), Tetanus, Hepatitis B, Haemophilus
+influenzae type B (Hib), Rotavirus diarrhoea, Measles, Rubella, Japanese Encephalitis
+(in endemic districts) and Pneumococcal disease in selected areas, with additional
+vaccines introduced as per national requirements.'
+where scheme_id = 21;
+Update schemes
+Set Description = 'Mission Indradhanush was launched on 25 December 2014 by the Government of India to increase immunization coverage among children and pregnant women who had
+either missed or only partially received vaccines under the Universal Immunization
+Programme. The programme specifically targets areas with low immunization coverage,
+including remote villages, urban slums, tribal regions, migratory populations and hard-
+to-reach communities. Every eligible child below two years of age and pregnant woman
+who has missed routine vaccination can benefit from the programme. There is no
+income limit or financial eligibility requirement. Mission Indradhanush is implemented
+throughout India through special vaccination drives and continues as an ongoing public
+health initiative whenever required. It is not meant for a single disease but aims to
+provide complete protection against all diseases covered under the Universal
+Immunization Programme.'
+where scheme_id = 22;
+Update schemes
+Set Description = 'The Intensified Mission Indradhanush (IMI) was launched in October 2017 to further accelerate immunization coverage in districts where vaccination rates remained below
+the national target. It is aimed at children under two years of age and pregnant women
+who have missed one or more scheduled vaccines. There is no income ceiling or
+eligibility restriction, and services are provided completely free of cost through
+government healthcare facilities. The programme focuses on underserved urban
+settlements, remote villages, nomadic populations, conflict-affected regions and other
+difficult-to-reach communities. It continues as an ongoing initiative and is implemented
+periodically in selected districts based on immunization gaps. Like Mission
+Indradhanush, it is not disease-specific but ensures complete immunization against all
+vaccine-preventable diseases included under the Universal Immunization Programme.'
+where scheme_id = 23;
+Update schemes
+Set Description = 'The School Health and Wellness Programme (SHWP) was launched in 2020 jointly by the Ministry of Health and Family Welfare and the Ministry of Education under the
+Ayushman Bharat initiative. It aims to improve the physical, mental and emotional well-
+being of school-going children by integrating health promotion into the education
+system. The programme covers students studying in government and government-aided
+schools across India. There are no income limits or eligibility restrictions, and
+participation is free. Health and Wellness Ambassadors, usually trained teachers,
+conduct regular health sessions on nutrition, hygiene, mental health, reproductive
+health, prevention of substance abuse, communicable diseases, non-communicable
+diseases, physical activity and life skills. The programme is ongoing and is not intended
+to treat a specific disease but to improve the overall health and well-being of school
+children through preventive and promotive healthcare.'
+where scheme_id = 24;
+Update schemes
+Set Description = 'The Maternal, Perinatal and Child Death Surveillance and Response (MPCDSR)
+programme was introduced under the National Health Mission to systematically
+identify, review and analyse maternal, perinatal and child deaths across India. It is not a
+direct benefit scheme for citizens but a health surveillance programme aimed at
+improving healthcare quality and reducing preventable deaths. Therefore, there are no
+beneficiary eligibility criteria, income limits or registration requirements. The
+programme is implemented in all States and Union Territories and continues as an
+ongoing initiative. It is not focused on one disease but examines all preventable causes
+of maternal and child mortality, helping governments improve healthcare services and
+policy interventions.'
+where scheme_id = 25;
+Update schemes
+Set Description = 'The Weekly Iron and Folic Acid Supplementation (WIFS) programme was launched in 2013 under the National Health Mission to reduce the prevalence of anaemia among
+adolescents. The programme provides one iron and folic acid tablet every week, along
+with biannual deworming, to school-going and out-of-school adolescents aged 10 to 19
+years. There is no income limit or financial eligibility requirement, and services are
+provided free of cost through schools, Anganwadi Centres and government healthcare
+facilities. It is implemented across India and continues as an ongoing programme.
+Although the programme mainly targets iron deficiency anaemia, it also improves
+nutritional status, cognitive development and overall health among adolescents.'
+where scheme_id = 26;
+Update schemes
+Set Description = 'Mission Poshan 2.0 was launched by the Government of India on 1 April 2021 by
+integrating POSHAN Abhiyaan, Supplementary Nutrition Programme, Anganwadi
+Services and the Scheme for Adolescent Girls into a single comprehensive nutrition
+mission. It aims to improve nutritional outcomes among pregnant women, lactating
+mothers, children aged 0 to 6 years and adolescent girls by strengthening
+supplementary nutrition and promoting healthy eating practices. Beneficiaries are
+identified through Anganwadi Centres, and there is no separate household income limit
+prescribed under the scheme, although priority is given to nutritionally vulnerable
+groups. The mission is implemented across all States and Union Territories through the
+Integrated Child Development Services (ICDS) network and continues as an ongoing
+programme. It is not limited to a specific disease but focuses on reducing stunting,
+wasting, undernutrition, anaemia and low birth weight, while improving overall maternal
+and child nutrition through community participation, growth monitoring and nutrition
+awareness.'
+where scheme_id = 27;
+Update schemes
+Set Description = 'Saksham Anganwadi was introduced in 2021 as a component of Mission Poshan 2.0 to modernize Anganwadi Centres and improve the delivery of nutrition, preschool
+education and healthcare services. The scheme primarily benefits children below six
+years of age, pregnant women, lactating mothers and adolescent girls registered with
+Anganwadi Centres. There is no fixed household income criterion, although the
+programme mainly serves economically and nutritionally vulnerable families. It is
+implemented throughout India through upgraded Anganwadi Centres equipped with
+better infrastructure, digital services and improved learning facilities. The programme is
+ongoing and is not disease-specific. Instead, it aims to improve nutrition, early
+childhood development, growth monitoring, immunization support, health education
+and referral services while strengthening community-based healthcare delivery.'
+where scheme_id = 28;
+Update schemes
+Set Description = 'The Anaemia Mukt Bharat (AMB) initiative was launched in 2018 under the National Health Mission as part of POSHAN Abhiyaan to reduce the prevalence of anaemia
+across India. The programme targets children (6 to 59 months), school-going children,
+adolescents, pregnant women, lactating mothers and women of reproductive age (15 to
+49 years). There is no income limit or financial eligibility requirement, and services are
+provided free of cost through government schools, Anganwadi Centres and public
+healthcare institutions. The initiative is implemented across all States and Union
+Territories and continues as an ongoing programme. It specifically focuses on the
+prevention, early detection and treatment of iron deficiency anaemia through iron and
+folic acid supplementation, deworming, behaviour change communication, screening
+and treatment of anaemia, and improving dietary diversity.'
+where scheme_id = 29;
+Update schemes
+Set Description = 'The National Iodine Deficiency Disorders Control Programme (NIDDCP) was originally launched as the National Goitre Control Programme in 1962 and was later renamed in
+1992 to address all iodine deficiency disorders. The programme aims to eliminate iodine
+deficiency among the entire population by ensuring the universal availability and
+consumption of adequately iodized salt. Every citizen can benefit from the programme,
+and there are no eligibility conditions, income limits or registration requirements. It is
+implemented throughout India through regular monitoring of iodized salt quality, public
+awareness campaigns and surveillance activities. The programme continues as an
+ongoing national initiative and specifically focuses on preventing goitre,
+hypothyroidism, impaired brain development, mental retardation and other disorders
+caused by iodine deficiency.'
+where scheme_id = 30;
