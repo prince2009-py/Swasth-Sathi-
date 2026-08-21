@@ -4,6 +4,8 @@ from pydantic import BaseModel
 from dotenv import load_dotenv
 from google import genai
 import os
+import mysql.connector
+
 
 app = FastAPI()
 load_dotenv()
@@ -68,3 +70,39 @@ User:
     return {
         "reply": response.text
     }
+db = mysql.connector.connect(
+    host=os.getenv("DB_HOST"),
+    port=os.getenv("DB_PORT"),
+    database=os.getenv("DB_NAME"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD")
+)
+@app.get("/tables")
+def tables():
+    try:
+        connection = mysql.connector.connect(
+            host=os.getenv("DB_HOST"),
+            port=int(os.getenv("DB_PORT")),
+            database=os.getenv("DB_NAME"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD")
+        )
+
+        cursor = connection.cursor()
+
+        cursor.execute("SHOW TABLES")
+        tables = cursor.fetchall()
+
+        cursor.close()
+        connection.close()
+
+        return {
+            "database": os.getenv("DB_NAME"),
+            "tables": [table[0] for table in tables]
+        }
+
+    except Exception as e:
+        return {
+            "status": "error",
+            "message": str(e)
+        }
