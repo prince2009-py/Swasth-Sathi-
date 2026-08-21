@@ -77,28 +77,31 @@ db = mysql.connector.connect(
     user=os.getenv("DB_USER"),
     password=os.getenv("DB_PASSWORD")
 )
-@app.get("/tables")
-def tables():
+@app.get("/test-schemes")
+def test_schemes():
     try:
         connection = mysql.connector.connect(
             host=os.getenv("DB_HOST"),
             port=int(os.getenv("DB_PORT")),
             database=os.getenv("DB_NAME"),
             user=os.getenv("DB_USER"),
-            password=os.getenv("DB_PASSWORD")
+            password=os.getenv("DB_PASSWORD"),
+            ssl_disabled=False
         )
 
         cursor = connection.cursor()
 
-        cursor.execute("SHOW TABLES")
-        tables = cursor.fetchall()
+        cursor.execute("SELECT COUNT(*) FROM Schemes")
+
+        count = cursor.fetchone()[0]
 
         cursor.close()
         connection.close()
 
         return {
-            "database": os.getenv("DB_NAME"),
-            "tables": [table[0] for table in tables]
+            "status": "success",
+            "table": "Schemes",
+            "rows": count
         }
 
     except Exception as e:
