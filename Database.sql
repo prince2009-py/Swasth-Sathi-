@@ -1688,4 +1688,4 @@ programme alongside the Ayushman Bharat Digital Mission (ABDM) and other digital
 health initiatives. It is not disease-specific, supporting digital management and
 surveillance across all national health programmes, communicable diseases, non-
 communicable diseases and public health emergencies.'
-where scheme_id = 145;
+
