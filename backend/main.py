@@ -107,6 +107,100 @@ def search_health_schemes(
         return [{"error": f"Database error: {str(e)}"}]
 
 
+@app.get("/schemes")
+def get_schemes(
+    query: str = None,
+    age: int = None,
+    income: float = None,
+    gender: str = None,
+    sort: str = "best",
+):
+    """Return schemes matching the given filters, ranked by how well they fit.
+
+    Query params:
+        query: keyword to search in scheme_name
+        age: applicant's age
+        income: applicant's annual income
+        gender: applicant's gender
+        sort: 'best' (best match first, default) or 'worst' (least match first)
+    """
+    try:
+        conn = get_db_connection()
+        cursor = conn.cursor(dictionary=True)
+
+        sql = "SELECT * FROM schemes WHERE 1=1"
+        params = []
+
+        if query:
+            sql += " AND scheme_name LIKE %s"
+            params.append(f"%{query}%")
+
+        cursor.execute(sql, tuple(params))
+        results = [clean_db_row(r) for r in cursor.fetchall()]
+
+        cursor.close()
+        conn.close()
+
+        def score_and_filter(row):
+            """Compute an eligibility score (0-100) and whether the user is eligible at all."""
+            total_checks = 0
+            passed_checks = 0
+            eligible = True
+
+            min_age = row.get("min_age")
+            max_age = row.get("max_age")
+            if age is not None and (min_age is not None or max_age is not None):
+                total_checks += 1
+                age_ok = (min_age is None or age >= min_age) and (
+                    max_age is None or age <= max_age
+                )
+                if age_ok:
+                    passed_checks += 1
+                else:
+                    eligible = False
+
+            row_gender = row.get("gender")
+            if gender and row_gender:
+                total_checks += 1
+                if row_gender.strip().lower() == gender.strip().lower():
+                    passed_checks += 1
+                else:
+                    eligible = False
+
+            income_limit = row.get("income_limit")
+            if income is not None and income_limit is not None:
+                total_checks += 1
+                if income <= income_limit:
+                    passed_checks += 1
+                else:
+                    eligible = False
+
+            # Base score from how many applicable criteria were satisfied
+            if total_checks > 0:
+                score = round((passed_checks / total_checks) * 100)
+            else:
+                score = 100  # no criteria supplied/applicable -> treat as neutral match
+
+            return score, eligible
+
+        enriched = []
+        for row in results:
+            score, eligible = score_and_filter(row)
+            row["match_score"] = score
+            row["eligible"] = eligible
+            enriched.append(row)
+
+        reverse = sort != "worst"
+        enriched.sort(key=lambda r: r["match_score"], reverse=reverse)
+
+        if enriched:
+            return {"count": len(enriched), "schemes": enriched}
+        return {"count": 0, "schemes": [], "message": "No schemes found."}
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Backend Error: {str(e)}")
+
+
 class ChatRequest(BaseModel):
     message: str
 
