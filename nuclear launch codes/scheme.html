@@ -70,7 +70,7 @@
     padding:22px 24px;
     box-shadow:0 12px 30px -18px rgba(15,61,58,0.35);
     display:grid;
-    grid-template-columns:1.4fr 0.8fr 0.8fr auto;
+    grid-template-columns:1fr 1fr 1fr auto;
     gap:16px;
     align-items:end;
   }
@@ -277,16 +277,21 @@
 <div class="controls">
   <div class="control-card">
     <div class="field">
-      <label for="query">Search by name</label>
-      <input type="text" id="query" placeholder="e.g. Ayushman, Janani, ESIC">
-    </div>
-    <div class="field">
       <label for="age">Age</label>
       <input type="number" id="age" min="0" max="120" placeholder="Years">
     </div>
     <div class="field">
       <label for="income">Annual income (₹)</label>
       <input type="number" id="income" min="0" placeholder="e.g. 250000">
+    </div>
+    <div class="field">
+      <label for="gender">Gender</label>
+      <select id="gender">
+        <option value="">Any</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select>
     </div>
     <button class="find-btn" id="findBtn">Find schemes</button>
   </div>
@@ -327,18 +332,19 @@
   sortWorstBtn.addEventListener("click", () => setSort("worst"));
 
   document.getElementById("findBtn").addEventListener("click", fetchSchemes);
-  [document.getElementById("query"), document.getElementById("age"), document.getElementById("income")]
+  [document.getElementById("age"), document.getElementById("income")]
     .forEach(el => el.addEventListener("keydown", e => { if(e.key === "Enter") fetchSchemes(); }));
+  document.getElementById("gender").addEventListener("change", fetchSchemes);
 
   async function fetchSchemes(){
-    const query = document.getElementById("query").value.trim();
     const age = document.getElementById("age").value;
     const income = document.getElementById("income").value;
+    const gender = document.getElementById("gender").value;
 
     const params = new URLSearchParams();
-    if(query) params.set("query", query);
     if(age) params.set("age", age);
     if(income) params.set("income", income);
+    if(gender) params.set("gender", gender);
     params.set("sort", currentSort);
 
     grid.innerHTML = "";
@@ -373,7 +379,7 @@
 
   function schemeCard(s){
     const name = s.scheme_name || "Unnamed scheme";
-    const desc = s.description || s.details || "No description available for this scheme.";
+    const desc = s.Description || s.description || "No description available for this scheme.";
     const score = typeof s.match_score === "number" ? s.match_score : 100;
     const eligible = s.eligible !== false;
 
