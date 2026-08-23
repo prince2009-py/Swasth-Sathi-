@@ -1,38 +1,388 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>MediBuddy</title>
-    <style>
-        body {
-            text-align: center;
-            font-family: Verdana;
-        }
-        button {
-            align: center;
-            text-align: center;
-            font-size: 20px;
-            height: 60px;
-            width: 600px;
-            background-color: cyan;
-            border-radius: 20px;
-            border: 0px;
-        }
-        #status-indicator { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; font-size: 14px; }
-    #status-dot { width: 10px; height: 10px; border-radius: 50%; background: gray; }
-#status-dot.online { background: #0a6; }
-#status-dot.offline { background: #c33; }
-#status-dot.waking { background: #e6a700; }
-        
-    </style></head>
-<body>
-    <h1> MediBuddy</h1>
-    <h2>Online Disease Predictor and Scheme Checker</h2>
-    <a href="symtrack.html"><button>Check Disease From symptoms</button></a><br><br><br>
-    <a href="scheme.html"><button>Check Scheme Eligibility</button></a><br>
-    <div id="status-indicator">
-  <span id="status-dot"></span>
-  <span id="status-text">Checking...</span>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SehatMitra — Your Health Companion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12241f;
+    --paper:#f4f7f4;
+    --panel:#ffffff;
+    --teal-deep:#0f3d3a;
+    --teal:#1c6b62;
+    --saffron:#c9752b;
+    --saffron-soft:#f4e3d1;
+    --line:#dbe3de;
+    --muted:#5c6d66;
+    --good:#0a6;
+    --bad:#c33;
+    --wake:#e6a700;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+  }
+  a{text-decoration:none;color:inherit;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--teal-deep);
+    color:#eef4f1;
+    padding:40px 6vw 60px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:640px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .mascot{
+    width:150px;
+    height:auto;
+    margin-bottom:8px;
+    filter:drop-shadow(0 14px 22px rgba(0,0,0,0.25));
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:#9fc9bf;
+    margin:6px 0 10px;
+  }
+  h1{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:clamp(32px,7vw,46px);
+    margin:0 0 12px;
+    letter-spacing:-0.01em;
+  }
+  .hero p.sub{
+    color:#c3d9d1;
+    font-size:16px;
+    line-height:1.55;
+    max-width:480px;
+    margin:0 0 30px;
+  }
+
+  .cta-row{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    width:100%;
+    max-width:380px;
+  }
+  .cta{
+    display:block;
+    width:100%;
+    padding:16px 20px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:16px;
+    text-align:center;
+    transition:transform .15s ease, box-shadow .15s ease;
+    border:none;
+    cursor:pointer;
+  }
+  .cta:active{transform:scale(0.98);}
+  .cta.primary{
+    background:var(--saffron);
+    color:#fff;
+    box-shadow:0 12px 24px -10px rgba(201,117,43,0.55);
+  }
+  .cta.secondary{
+    background:#ffffff;
+    color:var(--teal-deep);
+    box-shadow:0 12px 24px -10px rgba(0,0,0,0.25);
+  }
+
+  .status-pill{
+    margin-top:26px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.16);
+    padding:7px 14px;
+    border-radius:999px;
+    font-size:12.5px;
+    color:#cfe3dd;
+  }
+  #status-dot{
+    width:9px;height:9px;border-radius:50%;
+    background:#8a9d97;
+    flex-shrink:0;
+    transition:background .2s ease;
+  }
+  #status-dot.online{background:var(--good);box-shadow:0 0 0 3px rgba(10,102,0,0.18);}
+  #status-dot.offline{background:var(--bad);box-shadow:0 0 0 3px rgba(204,51,51,0.18);}
+  #status-dot.waking{background:var(--wake);box-shadow:0 0 0 3px rgba(230,167,0,0.18);}
+
+  /* ---------- SECTIONS ---------- */
+  section{
+    max-width:900px;
+    margin:0 auto;
+    padding:56px 6vw;
+  }
+  .section-head{
+    text-align:center;
+    margin-bottom:34px;
+  }
+  .section-eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin:0 0 8px;
+  }
+  .section-title{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:clamp(24px,4vw,32px);
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  /* How it works */
+  .how-image{
+    width:100%;
+    max-width:680px;
+    display:block;
+    margin:0 auto 28px;
+    border-radius:16px;
+  }
+  .how-steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+  }
+  @media (max-width:640px){
+    .how-steps{grid-template-columns:1fr;}
+  }
+  .how-step{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:18px;
+    text-align:center;
+  }
+  .how-step .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--saffron);
+    font-weight:600;
+    letter-spacing:0.06em;
+  }
+  .how-step h4{
+    font-family:'Fraunces',serif;
+    font-size:16px;
+    margin:6px 0 6px;
+  }
+  .how-step p{
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.5;
+    margin:0;
+  }
+
+  /* Feature cards */
+  .features{
+    background:var(--panel);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .feature-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:16px;
+  }
+  @media (max-width:640px){
+    .feature-grid{grid-template-columns:1fr;}
+  }
+  .feature-card{
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:20px;
+    background:var(--paper);
+  }
+  .feature-card h4{
+    font-family:'Fraunces',serif;
+    font-size:17px;
+    margin:0 0 6px;
+  }
+  .feature-card p{
+    font-size:13.5px;
+    color:var(--muted);
+    line-height:1.5;
+    margin:0;
+  }
+
+  /* Contact */
+  .contact{
+    text-align:center;
+  }
+  .contact-card{
+    background:var(--teal-deep);
+    color:#eef4f1;
+    border-radius:16px;
+    padding:36px 24px;
+    max-width:480px;
+    margin:0 auto;
+  }
+  .contact-card h3{
+    font-family:'Fraunces',serif;
+    font-size:22px;
+    margin:0 0 8px;
+  }
+  .contact-card p{
+    color:#c3d9d1;
+    font-size:14px;
+    margin:0 0 20px;
+    line-height:1.5;
+  }
+  .phone-link{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--saffron);
+    color:#fff;
+    font-weight:700;
+    font-size:16px;
+    padding:13px 26px;
+    border-radius:10px;
+  }
+  .disclaimer{
+    max-width:480px;
+    margin:20px auto 0;
+    font-size:12px;
+    color:var(--muted);
+    line-height:1.5;
+  }
+
+  footer{
+    text-align:center;
+    font-size:12px;
+    color:var(--muted);
+    padding:26px 6vw 40px;
+  }
+</style>
+</head>
+    <body>
+    <p class="eyebrow">SehatMitra</p>
+    <h1>Your friendly health companion</h1>
+    <p class="sub">Check your symptoms, get reliable guidance, and find the government health schemes you're eligible for — all in one place.</p>
+
+    <div class="cta-row">
+      <a href="symtrack.html"><button class="cta primary">Check Disease From Symptoms</button></a>
+      <a href="scheme.html"><button class="cta secondary">Check Scheme Eligibility</button></a>
+    </div>
+
+    <div class="status-pill">
+      <span id="status-dot"></span>
+      <span id="status-text">Checking status…</span>
+    </div>
+  </div>
 </div>
-<script >    
+
+<section id="how-it-works">
+  <div class="section-head">
+    <p class="section-eyebrow">Simple by design</p>
+    <h2 class="section-title">How it works</h2>
+  </div>
+  <div class="how-steps">
+    <div class="how-step">
+      <span class="num">Step 1</span>
+      <h4>Input Symptoms</h4>
+      <p>Tell us what you're experiencing in your own words, in your own language.</p>
+    </div>
+    <div class="how-step">
+      <span class="num">Step 2</span>
+      <h4>AI Analysis</h4>
+      <p>SehatMitra reviews your symptoms and matches them against known patterns safely.</p>
+    </div>
+    <div class="how-step">
+      <span class="num">Step 3</span>
+      <h4>Get Reliable Predictions & Schemes</h4>
+      <p>Receive safe home-care guidance and see which government health schemes fit you.</p>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="section-head">
+    <p class="section-eyebrow">Why SehatMitra</p>
+    <h2 class="section-title">Built to be safe and useful</h2>
+  </div>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h4>Safe home-care advice</h4>
+      <p>Simple, generally safe suggestions for minor symptoms — never a diagnosis, never a prescription.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Scheme matching</h4>
+      <p>See every government health scheme ranked by how well it fits your age, income, and gender.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Emergency awareness</h4>
+      <p>If your symptoms sound serious, SehatMitra tells you to seek emergency care right away.</p>
+    </div>
+    <div class="feature-card">
+      <h4>Speaks your language</h4>
+      <p>Chat in the language you're most comfortable with — SehatMitra responds in kind.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="section-head">
+    <p class="section-eyebrow">We're here to help</p>
+    <h2 class="section-title">Contact us</h2>
+  </div>
+  <div class="contact-card">
+    <h3>Have questions or feedback?</h3>
+    <p>Reach out to us directly and we'll get back to you.</p>
+    <a class="phone-link" href="tel:+919821762488">📞 +91 98217 62488</a>
+  </div>
+  <p class="disclaimer">This information is not a substitute for professional medical advice. In a medical emergency, please contact local emergency services immediately.</p>
+</section>
+
+<footer>© SehatMitra — Government Health Scheme & Symptom Assistant</footer>
+
+<script>
+  const API_BASE = "https://swasth-sathi-v7qw.onrender.com";
+  const dot = document.getElementById("status-dot");
+  const text = document.getElementById("status-text");
+
+  async function checkStatus(){
+    dot.className = "waking";
+    text.textContent = "Waking up backend…";
+    try{
+      const res = await fetch(`${API_BASE}/`);
+      if(res.ok){
+        dot.className = "online";
+        text.textContent = "Backend online";
+      } else {
+        dot.className = "offline";
+        text.textContent = "Backend unreachable";
+      }
+    }catch(err){
+      dot.className = "offline";
+      text.textContent = "Backend unreachable";
+    }
+  }
+  checkStatus();
 </script>
-</body>    
+
+</body>
 </html>
