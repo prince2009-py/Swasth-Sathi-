@@ -44,7 +44,6 @@
         transition:background .2s ease, color .2s ease;
       }
 
-      /* ---------- Top bar ---------- */
       header{
         flex:0 0 auto;
         display:flex;
@@ -120,7 +119,7 @@
         flex-direction:column;
         min-height:0;
         width:97%;
-        margin:0 auto;
+        margin:3px auto;
         padding:16px;
         gap:10px;
       }
@@ -155,7 +154,8 @@
         max-width:90%;
         background:var(--accent);
         color:#ffffff;
-        border-bottom-right-radius:6px;
+        border-radius:6px;
+        border-margin: 3px;
       }
 
       .ai-msg{
@@ -164,7 +164,8 @@
         background:var(--accent-light);
         color:var(--accent-dark);
         border:1px solid #ccf0ea;
-        border-bottom-left-radius:6px;
+        border-radius:6px;
+        border-margin: 3px;
       }
       [data-theme="dark"] .ai-msg{
         border-color:var(--border);
