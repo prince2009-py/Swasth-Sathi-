@@ -7,6 +7,10 @@ from google import genai
 from google.genai import types
 import mysql.connector
 from pydantic import BaseModel
+from google.genai.errors import ClientError
+
+
+
 
 load_dotenv()
 
@@ -346,14 +350,23 @@ def test_db():
 @app.post("/chat")
 def chat(request: ChatRequest):
     try:
-        # The same chat_session is reused, so Gemini can remember
-        # previous messages during this server session.
+        # Reuses the session to maintain conversation history
         response = chat_session.send_message(request.message)
-
         return {"reply": response.text}
+
+    except ClientError as e:
+        # Catches Gemini API 429 quota/rate limit errors
+        if e.code == 429:
+            raise HTTPException(
+                status_code=429,
+                detail="Gemini API daily quota limit reached. Switch models or try again later."
+            )
+        raise HTTPException(
+            status_code=e.code or 500,
+            detail=f"Gemini API Error: {str(e)}"
+        )
 
     except Exception as e:
         import traceback
-
         traceback.print_exc()
         raise HTTPException(status_code=500, detail=f"Backend Error: {str(e)}")
